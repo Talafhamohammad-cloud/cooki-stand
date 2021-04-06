@@ -1,0 +1,31 @@
+body{
+    background-color: sandybrown;
+    margin-top: 2cm;
+
+
+}
+body h1 {
+    color: navy;
+    text-align: center;
+
+}
+#parent {
+    background-color: rosybrown;
+    margin: 10%;
+
+
+}
+#parent h2{
+    background-color: teal;
+    color: maroon;
+   font-family: Arial, Helvetica, sans-serif;
+
+
+}
+#parent ul{
+    font-family: sans-serif;
+    font-size: xx-large;
+    color: navy ;
+    
+
+}

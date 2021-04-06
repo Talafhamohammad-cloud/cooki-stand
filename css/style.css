@@ -1,0 +1,48 @@
+body{
+    background-color: darkgrey;
+    margin: 5%;
+
+
+}
+body ul {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    background-color: salmon;
+    
+
+
+}
+#logo {
+    background-color: salmon;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 30%;
+    
+
+}
+header h1{
+    text-align: center;
+    color: deeppink;
+    font-size:xx-large;
+    background-color: lightcoral;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+
+}
+body a {
+    text-decoration: none;
+    color: rgb(85, 0, 0);
+    font-size: 200%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: inline;
+    background-color:royalblue;
+
+
+}
+
