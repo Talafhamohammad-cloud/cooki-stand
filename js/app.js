@@ -1,4 +1,4 @@
-'using strict'
+ 'using strict'
 
 const hours =['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 pm','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm'];
 function random(min,max) {
@@ -6,7 +6,7 @@ function random(min,max) {
     
 }
 
-/* ###############################################[seattle]#################################################################*/
+/* ###############################################[seattle]#################################################################
 
 const seattle ={
     locationName:'seattle',
@@ -64,7 +64,7 @@ seattle.calccostumerseacHhours();
 seattle.calccookieseacHhours();
 seattle.render();
 
-/* ###############################################[Tokyo]#################################################################*/
+/* ###############################################[Tokyo]#################################################################
 const Tokyo={
 locationName:'tokyo',
     mincustomers:3,
@@ -121,7 +121,7 @@ Tokyo.calccostumerseacHhours();
 Tokyo.calccookieseacHhours();
 Tokyo.render();
 
-/* ###############################################[Dubai]#################################################################*/
+/* ###############################################[Dubai]#################################################################
 
 const Dubai={
     locationName:'Dubai',
@@ -180,7 +180,7 @@ Dubai.calccostumerseacHhours();
 Dubai.calccookieseacHhours();
 Dubai.render();
 
-/* ###############################################[paris]#################################################################*/
+/* ###############################################[paris]#################################################################
 
 const Paris ={
     locationName:'Paris',
@@ -240,7 +240,7 @@ Paris.calccostumerseacHhours();
 Paris.calccookieseacHhours();
 Paris.render();
 
-/* ###############################################[lima]#################################################################*/
+/* ###############################################[lima]#################################################################
 
 const lima ={
     locationName:'Lima',
@@ -299,4 +299,116 @@ const lima ={
 }
 lima.calccostumerseacHhours();
 lima.calccookieseacHhours();
-lima.render();
+lima.render(); */
+
+// coomment the previous code for lab 06 and doing the new one for lab 07
+
+let stores = [];
+
+function Cookie(name, min, max, avg) {
+    this.min = min;
+    this.max = max;
+    this.avg = avg;
+    this.name = name;
+
+    this.total = 0;
+    this.cookiesperhour = [];
+
+    stores.push(this);
+
+}
+
+Cookie.prototype.calcCustomerPerHour=function () {
+    return random(this.min, this.max);
+}
+
+
+Cookie.prototype.calcookiesperhour = function () {
+    for (let i = 0; i < hours.length; i++) { 
+        this.cookiesperhour.push(Math.floor( this.calcCustomerPerHour() * this.avg));
+        this.total += this.cookiesperhour[i];
+       
+    }
+}
+
+const Seattle = new Cookie('Seattle', 23, 65, 6.3);
+const Tokyo = new Cookie('Tokyo', 3, 24, 1.2);
+const Dubai = new Cookie('Dubai', 11, 38, 3.7);
+const Paris = new Cookie('Paris', 20, 38, 2.3);
+const Lima = new Cookie('Lima', 2, 16, 4.6);
+let parent = document.getElementById('parent');
+let table = document.createElement('table');
+parent.appendChild(table);
+function makingHeader() {
+    let headingrow = document.createElement('tr');
+    table.appendChild(headingrow);
+    let firstTh = document.createElement('th');
+    headingrow.appendChild(firstTh);
+    firstTh.textContent='Name';
+    
+    for (let i = 0; i < hours.length; i++) {
+        let hoursTh = document.createElement('th');
+        headingrow.appendChild(hoursTh);
+        hoursTh.textContent = hours[i];
+    
+    }
+    
+    let finalTh = document.createElement('th');
+    headingrow.appendChild(finalTh);
+    finalTh.textContent = "Daily Location Total";
+
+    
+}    
+
+Cookie.prototype.render = function () { 
+    let storeRow = document.createElement('tr');
+    table.appendChild(storeRow);
+    let nameTd = document.createElement('td');
+    storeRow.appendChild(nameTd);
+    nameTd.textContent=this.name;
+
+
+    for (let i = 0; i < hours.length; i++) {
+        let cookiesTd = document.createElement('td');
+        storeRow.appendChild(cookiesTd);
+        cookiesTd.textContent = this.cookiesperhour[i];
+    }
+    let totalTd = document.createElement('td');
+    storeRow.appendChild(totalTd);
+    totalTd.textContent = this.total;
+
+}
+
+function makingFooter() {
+    let footerRow=document.createElement('tr');
+    table.appendChild(footerRow);
+    let firstTh = document.createElement('th');
+    footerRow.appendChild(firstTh);
+    firstTh.textContent='Totals';
+
+    let totalForEachHour;
+    let megaTotal=0;
+    for (let i = 0; i < hours.length; i++) {
+        totalForEachHour=0;
+        for (let j = 0; j < stores.length; j++) {
+            totalForEachHour+=stores[j].cookiesperhour[i];
+            megaTotal+=stores[j].cookiesperhour[i];
+         
+        }
+        let footerTh=document.createElement('th');
+        footerRow.appendChild(footerTh);
+        footerTh.textContent=totalForEachHour;
+
+    }
+    let totalTh= document.createElement('th');
+    footerRow.appendChild(totalTh);
+    totalTh.textContent=megaTotal;
+     
+}
+
+makingHeader();
+for (let i = 0; i < stores.length; i++) {
+    stores[i].calcookiesperhour();
+    stores[i].render();
+}
+makingFooter();

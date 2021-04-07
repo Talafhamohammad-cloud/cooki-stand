@@ -1,5 +1,5 @@
 body{
-    background-color: sandybrown;
+    background-color: rgb(241, 185, 136);
     margin-top: 2cm;
 
 
@@ -10,8 +10,16 @@ body h1 {
 
 }
 #parent {
-    background-color: rosybrown;
-    margin: 10%;
+    background-color: rgb(248, 170, 170);
+    margin: 1%;
+    text-align:center;
+    color: darkblue;
+    display: block;
+    
+
+
+    
+
 
 
 }
@@ -29,3 +37,12 @@ body h1 {
     
 
 }
+body a {
+
+    text-decoration: none;
+    font-family: cursive;
+    font-size: x-large;
+    color: darkgreen;
+    
+}
+
