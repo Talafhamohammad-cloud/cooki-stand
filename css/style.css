@@ -41,7 +41,7 @@ header #city{
     height: 2.5cm;
     width: 2.5cm;
     background-color: cornflowerblue;
-    color: rgb(10, 10, 82);
+    color: rgb(17, 17, 77);
     font-family: serif;
     font-size: x-large;
 
@@ -92,7 +92,7 @@ footer{
     text-align: center;
     vertical-align: middle;
     font-size: large;
-    color: #0b409c;
+    color: #07378a;
     background-color: #a6e3e9;
 }
 
