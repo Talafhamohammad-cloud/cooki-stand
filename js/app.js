@@ -420,9 +420,9 @@ forms.addEventListener('submit',adddata)
 function adddata(event) {
     event.preventDefault();
     let name = event.target.cityname.value;
-    let mini = event.target.minimum.value;
-    let max = event.target.maximum.value;
-    let avg = event.target.average.value;
+    let mini = parseInt(event.target.minimum.value);
+    let max = parseInt(event.target.maximum.value);
+    let avg = parseFloat(event.target.average.value);
     let input = new Cookie (name,mini,max,avg);
     table.textContent="";
     makingHeader();
