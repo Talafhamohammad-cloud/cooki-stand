@@ -39,3 +39,32 @@ body a {
     
 }
 
+#forms{
+    background-color: rgb(132, 179, 233);
+}
+#cityname{
+    background-color: lightsteelblue;
+}
+#minimum{
+    background-color: lightsteelblue;
+}
+#maximum{
+    background-color: lightsteelblue;
+}
+#avg{
+    background-color: lightsteelblue;
+}
+#submit{
+    background-color: rgb(142, 191, 255);
+    width: 3cm;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.lables {
+    font-family: cursive;
+    font-weight: bold;
+    color: navy;
+
+}
+
+
